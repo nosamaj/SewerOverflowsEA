@@ -17,5 +17,6 @@ def app():
 
         The data for the project is freely available [add a link]. Any conclusions drawn from the data
         are that of the Author and do not repesent any organisation to which they are affiliated. 
-        
-        """)
+
+        """
+    )

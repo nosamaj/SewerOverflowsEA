@@ -11,9 +11,9 @@ apps = MultiApp()
 
 # Add all your application here
 apps.add_app("Home", home.app)
-apps.add_app("Overflows Map", EDMMapper.app)
-apps.add_app("Spill charts",  EDMGrapher.app)
-apps.add_app("River and Rainfall", EDMPredicter.app)
+#apps.add_app("Overflows Map", EDMMapper.app)
+#apps.add_app("Spill charts",  EDMGrapher.app)
+#apps.add_app("River and Rainfall", EDMPredicter.app)
 
 # The main app
 apps.run()
