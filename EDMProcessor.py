@@ -96,10 +96,10 @@ df_2021_data = read_excel_sheets(data_path+'EDM 2021 Storm Overflow Annual Retur
 df_2021_data.columns = [x.replace("\n", " ") for x in df_2021_data.columns.to_list()]
 
 columns_2021 =["Site Name (EA Consents Database)", "Initial EDM Commission Date", "Total Duration (hrs) all spills prior to processing through 12-24h count method", "Counted spills using 12-24h count method", "EDM Operation - % of reporting period EDM operational", "EDM Operation - Reporting % - Primary Reason <90%", "EDM Operation - Action taken / planned - Status & timeframe", "High Spill Frequency - Operational Review - Primary Reason", "High Spill Frequency - Action taken / planned - Status & timeframe", "High Spill Frequency - Environmental Enhancement - Planning Position (Hydraulic capacity)"]
-columns_2021_new = ["Site Name", "Commision Date", "Duration Hrs 2021", "Spills 2021", 
-                    "Percent Montior Working 2021", "Monitor Failure Reason 2021", 
-                    "Monitor Failure Action 2021", "High Spill Cause 2021",
-                    "High Spill Action 2021", "High spill Planning 2021"]
+columns_2021_new = ["Site Name", "Commision Date", "Duration Hrs", "Spills", 
+                    "Percent Montior Working", "Monitor Failure Reason", 
+                    "Monitor Failure Action", "High Spill Cause",
+                    "High Spill Action", "Planning Concern"]
 
 
 dictionary = dict(zip(columns_2021, columns_2021_new))
@@ -114,8 +114,30 @@ overflows_df = pd.merge(overflows_df, df_stats_append, left_on = 'DISCHARGE_SITE
 
 overflows_df.head()
 
+final_columns = ["COMPANY_NAME",
+                 "DISCHARGE_SITE_NAME",
+                 "EFFLUENT_GRID_REF" ,
+                               "OUTLET_GRID_REF",
+                               # "ADD_OF_DISCHARGE_SITE_LINE_1" ,
+                               "ADD_OF_DISCHARGE_SITE_PCODE",
+                               "Commision Date", 
+                               "Duration Hrs",
+                               "Spills",
+                               "Percent Montior Working",
+                               "Monitor Failure Reason",
+                               "Monitor Failure Action",
+                               "High Spill Cause",
+                               "High Spill Action",
+                               "Planning Concern"]
+
+overflows2021_df= overflows_df[final_columns]
+
+overflows2021_df.to_csv('overflows2021.csv')
+
+overflows2021_df.head()
+
 #add columns for 2020 return
 
-#import 2021 return
+#import return
 
-#add columns for 2021 return
+#add columns for return
